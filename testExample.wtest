@@ -1,9 +1,25 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
+const juan = new Persona(metodosDePago = [efectivo,debitoMaster] ,objetos=[] , formaDePagoPreferida = efectivo , trabajo = mesero)
+const santi = new Persona(metodosDePago = [efectivo2] ,objetos=[] , formaDePagoPreferida = efectivo2 , trabajo = mesero)
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+
+const efectivo2 =new Efectivo(dineroDisponible=2000)
+const efectivo = new Efectivo(dineroDisponible =1000)
+const debitoMaster = new Debito(dineroDisponible=1000 ,  titualaresDeLaCuenta= [juan])
+const mesero = new Trabajo(sueldoActual =2000)
+
+const heladera = new Objeto(valor=100)
+describe "group of test" {
+
+  test "juan compra algo" {
+    juan.compraUnObjeto(heladera)
+    assert.equals(900, juan.dineroEnEfectivo())
+  }
+
+  test "santi cobra sueldo"{
+    fecha.transcurreUnMes(santi)
+    assert.equals(2000 , santi.dineroEnEfectivo())
   }
 
 }
